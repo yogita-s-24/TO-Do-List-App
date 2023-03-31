@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ToDO App For Students</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            display: block;
+            text-align: center;
+            align-items: center;
+            margin-top: 50px;
+            border: solid 2px black;
+            /* height: 450px; */
+            width: 50%;
+            margin-left: auto;
+            margin-right: auto;
+            background-image: url("https://cdn.pixabay.com/photo/2019/08/02/17/27/pc-4380166__480.jpg");
+            box-shadow: 2px 2px 2px 2px rgb(0, 0, 0);
+            border-radius: 5px;
+        }
+
+        .heading {
+            background-color: deeppink;
+            font-size: 50px;
+            padding: 10px;
+            border-radius: 5px;
+            box-shadow: 2px 2px 0px 0px black;
+            border: black solid 1px;
+            font-family: cursive;
+        }
+
+        .content {
+            margin-top: 100px;
+        }
+
+        input {
+            height: 50px;
+            width: 50%;
+            border-radius: 10%;
+            border: solid black 2px;
+            background-color: #e4f1e493;
+            padding: 5px;
+            font-family: cursive;
+            font-weight: bold;
+            border: solid #040303 2px;
+        }
+
+        input:hover {
+            border: solid rgb(247, 243, 243) 2px;
+        }
+
+        .btn {
+            margin-top: 50px;
+            background-color: #e4f1e493;
+            color: #080806;
+            padding: 10px;
+            font-size: 20px;
+            border-radius: 15%;
+            font-family: cursive;
+            font-weight: bold;
+            border: solid #040303 2px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        .btn:hover {
+            background-color: #69b687;
+            color: black;
+        }
+
+        li {
+            color: white;
+            font-size: 20px;
+            font-family: cursive;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1 class="heading">To-Do List For Students</h1>
+        <div class="content">
+            <ol type="I" id="studyList">
+                <li>⏰Good Morning⏰</li>
+                <li>😍Wake Up At 6am😍</li>
+                <li>📚Start Study With Fresh Mood📚</li>
+            </ol>
+            <input type="text" placeholder="Enter Your Study Schedule" id="studyInput" />
+            <div class="btn-btn">
+                <button type="button" class="btn" onclick="addToList()">
+                    Add To List
+                </button>
+            </div>
+        </div>
+    </div>
+    <script>
+        const study = [];
+        function addToList() {
+            const subjectName = document.getElementById("studyInput").value;
+            study.push(subjectName);
+            document.getElementById("studyInput").value = " ";
+            loadList();
+        }
+
+        function loadList() {
+            const studyList = document.getElementById("studyList");
+            studyList.innerHTML = "";
+            for (let i = 0; i < study.length; i++) {
+                studyList.innerHTML = studyList.innerHTML + `<li>${study[i]}</li>`;
+            }
+        }
+    </script>
+</body>
+
+</html>
